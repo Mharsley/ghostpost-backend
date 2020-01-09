@@ -1,0 +1,18 @@
+<a href="/">home</a>
+<a href="/addpost">add post</a>
+<a href="/addauthor">add Author</a>
+<button><a href="/roast/">roast</a></button>
+<button><a href="/boast/">boast</a></button>
+<button><a href="/sort/">sort</a></button>
+
+{% for foo in stories %}
+<h1>{{ foo.title }}</h1>
+<h3>date: {{foo.date}}</h3>
+<ul>  
+        <li>{{ foo.description }}</li>
+</ul> 
+<button><a href="/addlike/{{ foo.id }}">likes</a></button>
+<button><a href="/removelike/{{ foo.id }}">dislike</a></button>
+<p>likes={{foo.likes}}</p>
+<h2>* {{foo.author.name}}</h2>
+{% endfor %}
